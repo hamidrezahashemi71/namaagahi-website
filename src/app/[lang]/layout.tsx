@@ -28,7 +28,7 @@ export default function RootLayout(props: RootLayoutProps) {
       >
         <Providers>
           <Header lang={params.lang} />
-          <main className='h-screen'>
+          <main className='h-screen z-10'>
             {children}
           </main>
           <Footer lang={params.lang} />
