@@ -1,0 +1,26 @@
+{
+    "en": {
+        "home": {
+            "title": "Namaagahi Advertising Agency",
+            "description": "Namaagahi website"
+        },
+        "about": {
+            "title": "About Us",
+            "description": "Namaagahi website - About us page"
+        }
+    },
+    "fa": {
+        "dashboard": {
+            "title": "ورود به داشبورد مدیریت",
+            "description": "صفحه ورود داشبورد مدیریتی وب سایت نماآگهی"
+        },
+        "home": {
+            "title": "آژانس تبلیغاتی نماآگهی",
+            "description": "صفحه اصلی وب سایت آژانس تبلیغاتی نماآگهی"
+        },
+        "about": {
+            "title": "درباره ما",
+            "description": "صفحه درباره ما وب سایت نماآگهی"
+        }
+    }
+}
