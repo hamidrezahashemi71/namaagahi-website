@@ -2,7 +2,7 @@ import { getDictionary } from '@/lib/dictionary'
 import metaJson from '@/dictionaries/meta.json'
 
 export async function generateMetadata({ params }: LanguageProp) {
-  return metaJson[params.lang as 'fa' | 'en']['about']
+  return metaJson[params.lang as 'fa' | 'en']['jobs']
 }
 
 export default async function Jobs(props: LanguageProp) {

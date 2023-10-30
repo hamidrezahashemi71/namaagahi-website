@@ -1,33 +1,82 @@
 {
-    "navigation": {
-      "home": "خانه",
-      "about": "درباره ما"
+  "page": {
+    "home": {
+      "title": "به نکست جی اس اینترنشنال خوش آمدید",
+      "description": "چند زبانگی با نکست جی اس 13"
     },
-    "page": {
-      "home": {
-        "title": "به نکست جی اس اینترنشنال خوش آمدید",
-        "description": "چند زبانگی با نکست جی اس 13"
-      },
-      "about": {
-        "title": "درباره ما",
-        "description": "این صفحه درباره ماست"
-      },
-      "contact": {
-
-      },
-      "jobs": {
-
-      }
+    "about": {
+      "title": "درباره ما",
+      "description": "این صفحه درباره ماست"
     },
-    "component": {
-      "footer": {
-        "footerNavLinks": [
-          { "id": 1, "title": "خانه", "src": "/" },
-          { "id": 2, "title": "درباره ما", "src": "/about" },
-          { "id": 3, "title": "ارتباط با ما", "src": "/contact" },
-          { "id": 4, "title": "همکاری با ما", "src": "/jobs" }
-        ],
-        "copyright": "کلیه حقوق مادی و معنوی متعلق به شرکت نماآگهی محیط می باشد."
-      }
+    "contact": {
+
+    },
+    "jobs": {
+
+    }
+  },
+
+  "component": {
+    "header": {
+      "headerNavLinks": [
+        {
+          "id": 1,
+          "title": "خانه",
+          "src": "/"
+        },
+        {
+          "id": 2,
+          "title": "درباره ما",
+          "src": "/about"
+        },
+        {
+          "id": 3,
+          "title": "ارتباط با ما",
+          "src": "/contact"
+        },
+        {
+          "id": 4,
+          "title": "همکاری با ما",
+          "src": "/jobs"
+        },
+        {
+          "id": 5,
+          "title": "دپارتمان ها",
+          "src": "#",
+          "sublinks": [
+            {
+              "id": 51,
+              "title": "نماوا",
+              "src": ""
+            },
+            {
+              "id": 52,
+              "title": "خلاقیت",
+              "src": ""
+            },
+            {
+              "id": 53,
+              "title": "خدمات رسانه ها",
+              "src": ""
+            },
+            {
+              "id": 54,
+              "title": "خدمات دیجیتال مارکتینگ",
+              "src": ""
+            }
+          ]
+        }
+      ]
+    },
+
+    "footer": {
+      "footerNavLinks": [
+        { "id": 1, "title": "خانه", "src": "/" },
+        { "id": 2, "title": "درباره ما", "src": "/about" },
+        { "id": 3, "title": "ارتباط با ما", "src": "/contact" },
+        { "id": 4, "title": "همکاری با ما", "src": "/jobs" }
+      ],
+      "copyright": "کلیه حقوق مادی و معنوی متعلق به شرکت نماآگهی محیط می باشد."
     }
   }
+}

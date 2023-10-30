@@ -3,6 +3,7 @@
       "home": "Home",
       "about": "About"
     },
+
     "page": {
       "home": {
         "title": "Welcome to NextJs i18n",
@@ -19,7 +20,60 @@
 
       }
     },
+
     "component": {
+      "header": {
+        "headerNavLinks": [
+          {
+            "id": 1,
+            "title": "Home",
+            "src": "/"
+          },
+          {
+            "id": 2,
+            "title": "About Us",
+            "src": "/about"
+          },
+          {
+            "id": 3,
+            "title": "Contact Us",
+            "src": "/contact"
+          },
+          {
+            "id": 4,
+            "title": "Jobs",
+            "src": "/jobs"
+          },
+          {
+            "id": 5,
+            "title": "Departments",
+            "src": "#",
+            "sublinks": [
+              {
+                "id": 51,
+                "title": "Namava",
+                "src": ""
+              },
+              {
+                "id": 52,
+                "title": "Creativity",
+                "src": ""
+              },
+              {
+                "id": 53,
+                "title": "Media",
+                "src": ""
+              },
+              {
+                "id": 54,
+                "title": "Digital Marketing",
+                "src": ""
+              }
+            ]
+          }
+        ]
+      },
+
       "footer": {
         "footerNavLinks": [
           { "id": 1, "title": "Home", "src": "/" },

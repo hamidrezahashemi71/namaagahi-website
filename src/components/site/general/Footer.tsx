@@ -20,7 +20,7 @@ const footerSocialLinks = [
 ]
 
 export default async function Footer({ lang }: { lang: Locale }) {
-  const { navigation, component } = await getDictionary(lang)
+  const { component } = await getDictionary(lang)
 
   return (
     <footer
@@ -41,17 +41,17 @@ export default async function Footer({ lang }: { lang: Locale }) {
       </div>
 
       <div className='flex flex-col justify-end gap-3 items-end w-full h-[100%] break-words mt-44 md:mt-0 z-20'>
-        <div className="flex flex-row gap-3 sm:gap-5 md:gap-10 justify-center font-bold ">
+        <ul className="flex flex-row gap-3 sm:gap-5 md:gap-10 justify-center font-bold ">
           {
             component.footer.footerNavLinks.map((footerLink) => (
               <Link href={`/${lang}${footerLink.src}`} key={footerLink.id}>
-                <p className='cursor-pointer hover:text-[#9b51e0] text-xs sm:text-sm md:text-lg hover:scale-110 transition-colors'>
+                <li className='cursor-pointer hover:text-[#9b51e0] text-xs sm:text-sm md:text-lg hover:scale-110 transition-colors'>
                   {footerLink.title}
-                </p>
+                </li>
               </Link>
             ))
           }
-        </div>
+        </ul>
         <hr className="h-px w-full bg-gray-400 border-0  md:mt-5" />
         <div className='flex flex-col md:flex-row justify-center md:justify-between items-center w-full gap-5 mt-5'>
           <div className='flex flex-row gap-6 md:gap-8 items-center'>

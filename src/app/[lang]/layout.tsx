@@ -1,6 +1,6 @@
 import '../globals.css'
 import { Locale, i18n } from '@/config/i18n.config'
-import Header from '@/components/Header'
+import Header from '@/components/site/Header'
 import Providers from '@/lib/Providers'
 import { poppins, sahel } from '@/lib/fonts'
 import Footer from '@/components/site/general/Footer'
