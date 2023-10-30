@@ -12,14 +12,14 @@ const getHelloData = async() => {
   return res.json()
 }
 
-const getEchoData = async() => { 
+const getEchoData = async() => {
   const res = await fetch(`${process.env.SERVER}/echo?name=Hamidreza&job=Developer`, { next: { revalidate: 3600 } })
   return res.json()
 }
 export default async function About(props: LanguageProp) {
   const { params: { lang } } = props
   const { page } = await getDictionary(lang)
-  const [hello, echo] = await Promise.all([getHelloData(), getEchoData()]) 
+  const [hello, echo] = await Promise.all([getHelloData(), getEchoData()])
 
   return (
     <section className='py-24'>

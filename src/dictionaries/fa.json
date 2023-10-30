@@ -11,6 +11,23 @@
       "about": {
         "title": "درباره ما",
         "description": "این صفحه درباره ماست"
+      },
+      "contact": {
+
+      },
+      "jobs": {
+
+      }
+    },
+    "component": {
+      "footer": {
+        "footerNavLinks": [
+          { "id": 1, "title": "خانه", "src": "/" },
+          { "id": 2, "title": "درباره ما", "src": "/about" },
+          { "id": 3, "title": "ارتباط با ما", "src": "/contact" },
+          { "id": 4, "title": "همکاری با ما", "src": "/jobs" }
+        ],
+        "copyright": "کلیه حقوق مادی و معنوی متعلق به شرکت نماآگهی محیط می باشد."
       }
     }
   }

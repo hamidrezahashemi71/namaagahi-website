@@ -8,33 +8,26 @@ import { BsFacebook, BsFillTelephoneFill, BsInstagram, BsLinkedin } from 'react-
 import { IoMailOutline } from 'react-icons/io5'
 import Link from 'next/link'
 
-const footerNavLinks = [
-  { id: 1, title: 'خانه', src: '' },
-  { id: 2, title: 'درباره ما', src: '' },
-  { id: 3, title: 'ارتباط با ما', src: '' },
-  { id: 4, title: 'همکاری با ما', src: '' }
-]
-
 const footerContactLinks = [
   { id: 1, icon: <BsFillTelephoneFill />, title: '021-96610' },
   { id: 2, icon: <IoMailOutline />, title: 'info@namaagahi.com' },
 ]
 
 const footerSocialLinks = [
-  { id: 1, icon: <BsInstagram />, title: 'instagram' },
-  { id: 2, icon: <BsLinkedin />, title: 'linkedin' },
-  { id: 3, icon: <BsFacebook />, title: 'facebook' }
+  { id: 1, icon: <BsInstagram />, src: 'instagram' },
+  { id: 2, icon: <BsLinkedin />, src: 'linkedin' },
+  { id: 3, icon: <BsFacebook />, src: 'facebook' }
 ]
 
 export default async function Footer({ lang }: { lang: Locale }) {
-  const { navigation } = await getDictionary(lang)
+  const { navigation, component } = await getDictionary(lang)
 
   return (
     <footer
       dir='rtl'
-      className='relative text-white dark:text-[#0A142F] overflow-x-clip flex justify-center items-center w-full z-10 p-10 md:p-24'
+      className='relative text-white dark:text-[#0A142F] overflow-x-clip flex justify-center items-center w-full z-10 p-10 md:p-24 md:pb-6'
     >
-      <div className='absolute bottom-0 min-h-[350px] md:h-[500px] w-[150%] rounded-t-[80%] bg-[#0A142F] dark:bg-neutral-100 px-[40%]'>
+      <div className='absolute bottom-0 min-h-[370px] md:h-[500px] w-[150%] rounded-t-[80%] bg-[#0A142F] dark:bg-neutral-100 px-[40%]'>
         <div className="relative">
           <Image
             className="absolute rounded-full w-[170px] md:w-[400px] h-[170px] md:h-[400px] top-1/4 'right-1/3' transform translate-x-1/2 -translate-y-1/2 md:-translate-y-1/2 z-20"
@@ -48,11 +41,11 @@ export default async function Footer({ lang }: { lang: Locale }) {
       </div>
 
       <div className='flex flex-col justify-end gap-3 items-end w-full h-[100%] break-words mt-44 md:mt-0 z-20'>
-        <div className="flex flex-col md:flex-row gap-3 md:gap-10 justify-center font-bold ">
+        <div className="flex flex-row gap-3 sm:gap-5 md:gap-10 justify-center font-bold ">
           {
-            footerNavLinks.map((footerLink) => (
-              <Link href={footerLink.src} key={footerLink.id}>
-                <p className='cursor-pointer hover:text-[#9b51e0] text-sm md:text-lg hover:scale-110 transition-colors'>
+            component.footer.footerNavLinks.map((footerLink) => (
+              <Link href={`/${lang}${footerLink.src}`} key={footerLink.id}>
+                <p className='cursor-pointer hover:text-[#9b51e0] text-xs sm:text-sm md:text-lg hover:scale-110 transition-colors'>
                   {footerLink.title}
                 </p>
               </Link>
@@ -61,16 +54,18 @@ export default async function Footer({ lang }: { lang: Locale }) {
         </div>
         <hr className="h-px w-full bg-gray-400 border-0  md:mt-5" />
         <div className='flex flex-col md:flex-row justify-center md:justify-between items-center w-full gap-5 mt-5'>
-          <div className='flex flex-col md:flex-row gap-2 md:gap-8 items-center'>
+          <div className='flex flex-row gap-6 md:gap-8 items-center'>
             {
               footerContactLinks.map((footerContactLink) => (
                 <div
                   key={footerContactLink.id}
                   className='flex items-center gap-2 hover:text-[#9b51e0] text-sm md:text-lg transition-all'
                 >
-                  <p>
-                    {footerContactLink.title}
-                  </p>
+                  <Link href={`/${lang}`}>
+                    <p>
+                      {footerContactLink.title}
+                    </p>
+                  </Link>
                   <p>
                     {footerContactLink.icon}
                   </p>
@@ -85,14 +80,14 @@ export default async function Footer({ lang }: { lang: Locale }) {
             height={48}
             className='floating'
           />
-          <div className='flex gap-2 md:gap-8 items-center'>
+          <div className='flex gap-5 md:gap-8 items-center'>
             {
               footerSocialLinks.map((footerSocialLinks) => (
               <div
                 key={footerSocialLinks.id}
                 className='flex gap-4 items-center cursor-pointer hover:text-[#9b51e0] text-sm md:text-lg transition-all'
               >
-                <p className='text-lg mt-5'>
+                <p className='text-lg md:text-3xl'>
                   {footerSocialLinks.icon}
                 </p>
               </div>
@@ -100,6 +95,9 @@ export default async function Footer({ lang }: { lang: Locale }) {
             }
           </div>
         </div>
+        <p className='text-xs mx-auto text-center mt-2 md:mt-10 lg:mt-14 md:text-base'>
+          {component.footer.copyright}
+        </p>
       </div>
     </footer>
   )
