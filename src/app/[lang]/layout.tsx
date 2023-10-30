@@ -1,9 +1,9 @@
 import '../globals.css'
 import { Locale, i18n } from '@/config/i18n.config'
-import Header from '@/components/site/Header'
+import Header from '@/components/site/navigation/Header'
 import Providers from '@/lib/Providers'
 import { poppins, sahel } from '@/lib/fonts'
-import Footer from '@/components/site/general/Footer'
+import Footer from '@/components/site/navigation/Footer'
 
 type RootLayoutProps = {
   children: React.ReactNode
