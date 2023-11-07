@@ -27,8 +27,8 @@ export default function RootLayout(props: RootLayoutProps) {
       suppressHydrationWarning={true}
       >
         <Providers>
-          <Header lang={params.lang} />
-          <main className='h-screen z-10'>
+          <main className='z-10'>
+            <Header lang={params.lang} />
             {children}
           </main>
           <Footer lang={params.lang} />

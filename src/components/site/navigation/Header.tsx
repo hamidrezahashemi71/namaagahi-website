@@ -8,7 +8,7 @@ export default async function Header({ lang }: { lang: Locale }) {
   const { component } = await getDictionary(lang)
 
   return (
-    <header className='sticky top-0 px-4 py-11 bg-transparent bg-gradient-180 from-[#000]/[.4] via-[#000]/[.2] to-[#000000F7]/[.01]'>
+    <header className='sticky top-0 px-4 py-11 bg-transparent bg-gradient-180 from-[#000]/[1] via-[#000]/[.5] to-[#000000F7]/[.01] z-[1000] text-white'>
       <nav className='container flex items-center justify-between'>
         <ul className='flex gap-x-8'>
           {
@@ -25,7 +25,7 @@ export default async function Header({ lang }: { lang: Locale }) {
                     {headerLink.title}
                   </li>
                   {headerLink.sublinks?.map((sublink) => (
-                    <li key={sublink.id}>
+                    <li key={sublink.id} className='hidden'>
                       <Link href={`/${lang}${sublink.src}`}>
                         {sublink.title}
                       </Link>

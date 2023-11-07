@@ -25,7 +25,7 @@ export default async function Footer({ lang }: { lang: Locale }) {
   return (
     <footer
       dir='rtl'
-      className='relative text-white dark:text-[#0A142F] overflow-x-clip flex justify-center items-center w-full z-10 p-10 md:p-24 md:pb-6'
+      className='relative text-white dark:text-[#0A142F] overflow-x-clip flex justify-center items-center w-full z-10 p-10 md:p-24 md:pb-6 mt-0 md:mt-72'
     >
       <div className='absolute bottom-0 min-h-[370px] md:h-[500px] w-[150%] rounded-t-[80%] bg-[#0A142F] dark:bg-neutral-100 px-[40%]'>
         <div className="relative">
