@@ -14,7 +14,7 @@ export default async function About(props: LanguageProp) {
 
   return (
     <section className='py-24 '>
-      <div className='container h-[50vh] flex flex-col items-center justify-between'>
+      <div className='container h-[50vh] flex flex-col gap-9 items-center justify-between'>
         <p className='font-bold text-5xl'>
           {page.about.title}
         </p>

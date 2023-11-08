@@ -1,6 +1,6 @@
 import '../globals.css'
 import { Locale, i18n } from '@/config/i18n.config'
-import Header from '@/components/site/navigation/Header'
+import Header from '@/components/site/navigation/header/Header'
 import Providers from '@/lib/Providers'
 import { poppins, sahel } from '@/lib/fonts'
 import Footer from '@/components/site/navigation/Footer'
@@ -30,8 +30,8 @@ export default function RootLayout(props: RootLayoutProps) {
           <main className='z-10'>
             <Header lang={params.lang} />
             {children}
+            <Footer lang={params.lang} />
           </main>
-          <Footer lang={params.lang} />
         </Providers>
       </body>
     </html>

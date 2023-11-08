@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
+import { GiMoon } from 'react-icons/gi'
 
 export default function ThemeToggler() {
   const { resolvedTheme, setTheme } = useTheme()
@@ -15,13 +16,13 @@ export default function ThemeToggler() {
     <button
       aria-label='Toggle Dark Mode'
       type='button'
-      className='flex items-center justify-center rounded-lg p-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-700'
+      className='flex items-center justify-center rounded-lg transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-700'
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
       {resolvedTheme === 'dark' ? (
         <BsFillSunFill className='h-5 w-5 text-orange-300' />
       ) : (
-        <BsFillMoonFill className='h-5 w-5 text-slate-800' />
+        <GiMoon className='h-6 w-6 text-yellow-500' />
       )}
     </button>
   )
