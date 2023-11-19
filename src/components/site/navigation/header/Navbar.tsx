@@ -2,15 +2,15 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import logoTextWhite from '../../../../../public/images/logo-text-white.png'
+import logoTextBlack from '../../../../../public/images/logo-text-black.png'
+import logoTextBlackEn from '../../../../../public/images/logo-text-black-en.png'
 import logo from '../../../../../public/images/logo.svg'
 import LocaleSwitcher from '@/components/LocaleSwitcher'
 import { Locale } from '@/config/i18n.config'
 import ThemeToggler from '@/components/ThemeToggler'
 import { AiOutlineMenu } from 'react-icons/ai'
-import { useTheme } from 'next-themes'
-import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { BiChevronDown } from 'react-icons/bi'
 type Props = {
   component: Header
@@ -19,7 +19,6 @@ type Props = {
 
 export default function Navbar(props: Props) {
   const { component, lang } = props
-  const { resolvedTheme } = useTheme()
   const [isMobile, setIsMobile] = useState<boolean>(false)
 
   const handleIsMobile = () => setIsMobile(!isMobile)
@@ -42,11 +41,11 @@ export default function Navbar(props: Props) {
   }
 
   return (
-    <div className='sticky top-0'>
+    <div className='top-0'>
       <div
         id="your-absolute-div-id"
-        className='hidden sm:block absolute top-0 bg-[#7300ff] px-4 py-6 shadow-md'
-        style={lang === 'en' ? { left:0, borderBottomRightRadius: '30px' } : { right:0, borderBottomLeftRadius: '30px' }}
+        className='hidden sm:block absolute top-0 bg-white px-4 py-6 shadow-xl'
+        style={lang === 'en' ? { left: '-10px', borderBottomRightRadius: '30px' } : { right: '-10px', borderBottomLeftRadius: '30px' }}
 
       >
         <div className="flex items-center gap-2">
@@ -54,15 +53,26 @@ export default function Navbar(props: Props) {
             <Image
               alt='header-logo'
               src={logo}
-              width={48}
-              height={48}
+              width={52}
+              height={52}
             />
-            <Image
-              alt='header-logo-white'
-              src={logoTextWhite}
-              width={100}
-              height={100}
-            />
+            {
+              lang === 'fa'
+              ?
+              <Image
+                alt='header-logo-black'
+                src={logoTextBlack}
+                width={120}
+                height={120}
+              />
+              :
+              <Image
+                alt='header-logo-black-en'
+                src={logoTextBlackEn}
+                width={120}
+                height={120}
+              />
+            }
           </div>
         </div>
       </div>

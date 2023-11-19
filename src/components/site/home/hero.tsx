@@ -24,6 +24,14 @@ export default function Hero() {
 
   const goToSlide = (slideIndex: number) => setCurrentSlide(slideIndex)
 
+  const scrollToBottom = () => {
+    const firstDiv = document.getElementById('parentDiv')
+    if (firstDiv) {
+      const yOffset = firstDiv.getBoundingClientRect().bottom + window.scrollY
+      window.scrollTo({ top: yOffset, behavior: 'smooth' })
+    }
+  }
+
   useEffect(() => {
     setTimeout(() => {
       nextSlide()
@@ -31,18 +39,22 @@ export default function Hero() {
   }, [currentSlide])
 
   return (
-    <div className='max-w-[300%] h-screen w-full m-auto relative'>
+    <div
+      className='max-w-[300%] h-screen w-full m-auto relative'
+      dir='rtl'
+      id='parentDiv'
+    >
       <div
         className='w-full h-full bg-center bg-cover duration-1000'
         style={{ backgroundImage: `url(${sliderImages[currentSlide].url})` }}
       ></div>
       <div className='absolute top-0 right-0 w-full h-full bg-black/30 transition ease-in-out delay-1000' />
-      <div className='absolute w-full bottom-36 -translate-x-0 translate-y-[-50%] left-7 flex justify-end items-center gap-x-1 py-2 border-b-red-500 border-b-[5px]'>
+      <div className='absolute w-full bottom-36 -translate-x-0 translate-y-[-50%] left-7 flex justify-end items-center gap-x-1 py-2 border-b-purple-500 border-b-[3px]'>
         {sliderImages.map((slide, slideIndex) => (
           <div key={slide.id}>
             <FaRegCircle
               size={17}
-              className={`cursor-pointer text-white ${currentSlide === slideIndex && 'text-purple-300 font-bold'}`}
+              className={`cursor-pointer text-white ${currentSlide === slideIndex && 'text-purple-500 font-bold'}`}
               onClick={() => goToSlide(slideIndex)}
             />
           </div>
@@ -61,7 +73,10 @@ export default function Hero() {
         />
       </div>
       <div className='absolute bottom-16 -translate-x-0 translate-y-[-100%] left-[42%] md:right-3 rounded-full p-2 text-white cursor-pointer animate-bounce'>
-        <MdOutlineKeyboardDoubleArrowDown size={70}/>
+        <MdOutlineKeyboardDoubleArrowDown
+          size={70}
+          onClick={scrollToBottom}
+        />
       </div>
     </div>
   )
