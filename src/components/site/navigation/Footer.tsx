@@ -78,7 +78,7 @@ export default async function Footer({ lang }: { lang: Locale }) {
             src={logo}
             width={48}
             height={48}
-            className='floating'
+            className='animate-bounce'
           />
           <div className='flex gap-5 md:gap-8 items-center'>
             {
