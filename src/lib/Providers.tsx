@@ -6,7 +6,12 @@ export default function Providers(props: Children) {
   const { children } = props
 
   return (
-    <ThemeProvider attribute='class'>
+    <ThemeProvider
+      attribute='class'
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
       {children}
     </ThemeProvider>
   )

@@ -24,21 +24,21 @@ export default function LocaleSwitcher() {
           <li key={locale}>
             <Link
               href={redirectedPathName(locale)}
-              className="block text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+              className=' flex items-center bg-fixed opacity-100 transition duration-300 ease-in-out hover:opacity-70'
             >
               <div className="inline-flex items-center">
                 {locale === 'fa' ?
                   <Image
                     src={fa}
-                    width={25}
-                    height={25}
+                    width={20}
+                    height={20}
                     alt='fa'
                   />
                 :
                   <Image
                     src={en}
-                    width={25}
-                    height={25}
+                    width={20}
+                    height={20}
                     alt='en'
                   />
                 }

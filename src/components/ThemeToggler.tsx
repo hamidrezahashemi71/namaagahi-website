@@ -20,9 +20,9 @@ export default function ThemeToggler() {
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
       {resolvedTheme === 'dark' ? (
-        <BsFillSunFill className='h-5 w-5 text-orange-300' />
+        <BsFillSunFill className='text-orange-300' size={20} />
       ) : (
-        <GiMoon className='h-6 w-6 text-yellow-500' />
+        <GiMoon className='text-blue-900' size={20} />
       )}
     </button>
   )
