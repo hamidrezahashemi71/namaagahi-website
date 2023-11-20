@@ -19,7 +19,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sahel: ['var(--font-sahel)'],
-        poppins: ['var(--font-poppins)']
+        roboto: ['var(--font-roboto)']
       },
     }
   },

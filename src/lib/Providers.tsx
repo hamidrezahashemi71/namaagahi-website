@@ -7,7 +7,7 @@ export default function Providers(props: Children) {
 
   return (
     <ThemeProvider
-      attribute='class'
+      attribute='className'
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange

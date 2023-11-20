@@ -8,7 +8,7 @@ export default async function CallToAction({ lang }: { lang: Locale }) {
   const { component } = await getDictionary(lang)
 
   return (
-    <div className='w-full px-32 py-10 flex items-center justify-around gap-x-2'>
+    <div className='w-full px-32 py-10 flex items-center justify-around gap-x-2 border-b'>
       {component.callActions.callActionCards.map((card) => (
         <Link href={`/${lang}${card.src}`} key={card.id}>
           <CallActionCard card={card} />

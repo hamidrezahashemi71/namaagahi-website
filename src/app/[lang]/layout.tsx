@@ -2,7 +2,7 @@ import '../globals.css'
 import { Locale, i18n } from '@/config/i18n.config'
 import Header from '@/components/site/navigation/header/Header'
 import Providers from '@/lib/Providers'
-import { poppins, sahel } from '@/lib/fonts'
+import { roboto, sahel } from '@/lib/fonts'
 import Footer from '@/components/site/navigation/Footer'
 
 type RootLayoutProps = {
@@ -20,14 +20,14 @@ export default function RootLayout(props: RootLayoutProps) {
   return (
     <html lang={params.lang} dir={params.lang === 'fa' ? 'rtl' : 'ltr'}>
       <body className={`
-        ${params.lang === 'fa' ? sahel.variable : poppins.variable}
-        ${params.lang === 'fa' ? 'font-sahel' : 'font-poppins'}
+        ${params.lang === 'fa' ? sahel.variable : roboto.variable}
+        ${params.lang === 'fa' ? 'font-sahel' : 'font-roboto'}
         h-screen
       `}
       suppressHydrationWarning={true}
       >
         <Providers>
-          <main className='z-10'>
+          <main className='z-10 bg-gradient-to-r from-fuchsia-500/10 via-violet-900/10 to-indigo-500/10'>
             <Header lang={params.lang} />
             {children}
             <Footer lang={params.lang} />

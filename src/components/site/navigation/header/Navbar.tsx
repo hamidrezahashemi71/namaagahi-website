@@ -43,7 +43,7 @@ export default function Navbar(props: Props) {
     initial: { x: '-100%' },
     animate: { x: 0 },
     exit: { x: '-100%' },
-    transition: { duration: 0.3 },
+    transition: { duration: 1 },
   }
 
   const framerText = (delay: number) => {
@@ -134,13 +134,12 @@ export default function Navbar(props: Props) {
               ))
             }
           </ul>
-        <div className="flex items-center gap-2 bg-white p-2 rounded-lg bg-opacity-50">
+        <div className="flex items-center gap-2 ">
           <LocaleSwitcher />
 
           <ThemeToggler />
         </div>
         </motion.div>
-
 
         <div className='xl:hidden relative top-0 w-full'>
           <button

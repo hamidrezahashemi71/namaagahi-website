@@ -1,5 +1,5 @@
 import localFont from 'next/font/local'
-import { Poppins } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 
 export const sahel = localFont({
   src: [{
@@ -16,9 +16,9 @@ export const sahel = localFont({
   variable: '--font-sahel'
 })
 
-export const poppins = Poppins({
+export const roboto = Roboto({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-poppins',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+  variable: '--font-roboto',
+  weight: ['100', '300', '400', '500', '700', '900']
 })

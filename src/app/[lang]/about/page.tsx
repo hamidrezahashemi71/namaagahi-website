@@ -2,6 +2,7 @@ import { getDictionary } from '@/lib/dictionary'
 import metaJson from '@/dictionaries/meta.json'
 import NamavaIcon from '../../../../public/icons/Namava.svg'
 import Image from 'next/image'
+import Container from '@/components/site/generals/container'
 
 export async function generateMetadata({ params }: LanguageProp) {
   return metaJson[params.lang as 'fa' | 'en']['about']
@@ -18,7 +19,7 @@ export default async function About(props: LanguageProp) {
         <p className='font-bold text-5xl'>
           {page.about.title}
         </p>
-        <div className='w-full p-8 dark:bg-white bg-black rounded-md flex flex-col justify-center items-center gap-11 dark:text-black text-white leading-10 text-lg'>
+        <Container>
           <p>
             {page.about.about}
           </p>
@@ -33,7 +34,7 @@ export default async function About(props: LanguageProp) {
               height={100}
             />
           </div>
-        </div>
+        </Container>
       </div>
     </section>
   )
