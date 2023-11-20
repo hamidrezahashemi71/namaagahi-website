@@ -9,9 +9,10 @@ import LocaleSwitcher from '@/components/LocaleSwitcher'
 import { Locale } from '@/config/i18n.config'
 import ThemeToggler from '@/components/ThemeToggler'
 import { AiOutlineMenu } from 'react-icons/ai'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { BiChevronDown } from 'react-icons/bi'
+
 type Props = {
   component: Header
   lang: Locale
@@ -20,6 +21,21 @@ type Props = {
 export default function Navbar(props: Props) {
   const { component, lang } = props
   const [isMobile, setIsMobile] = useState<boolean>(false)
+  const [scrolling, setScrolling] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      const threshold = 50
+      setScrolling(scrollTop > threshold);
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const handleIsMobile = () => setIsMobile(!isMobile)
 
@@ -44,12 +60,12 @@ export default function Navbar(props: Props) {
     <div className='top-0'>
       <div
         id="your-absolute-div-id"
-        className='hidden sm:block absolute top-0 bg-white px-4 py-6 shadow-xl'
+        className={`hidden sm:block absolute top-0 bg-white px-4 ${scrolling ? 'py-2' : 'py-5'} shadow-xl transition-all duration-500`}
         style={lang === 'en' ? { left: '-10px', borderBottomRightRadius: '30px' } : { right: '-10px', borderBottomLeftRadius: '30px' }}
 
       >
         <div className="flex items-center gap-2">
-          <div className="hidden sm:flex items-center gap-2 w-44">
+          <div className="hidden sm:flex items-center gap-2 w-44 py-4">
             <Image
               alt='header-logo'
               src={logo}
@@ -87,14 +103,19 @@ export default function Navbar(props: Props) {
           <ul className="flex flex-col items-start justify-center py-4 gap-4 font-medium xl:p-0 mt-4 bg-gray-100 dark:bg-gray-800 xl:dark:bg-transparent bg-opacity-70 dark:bg-opacity-70 xl:flex-row xl:mt-0 xl:bg-transparent ">
             {
               component?.header.headerNavLinks.map((headerLink, index, ref) => (
-                <Link href={`/${lang}${headerLink.src}`} key={headerLink.id} className='flex items-center gap-2'>
-                  <li
-                    className='cursor-pointer xl:px-0 py-5 text-sm font-normal hover:bg-white hover:text-black'
-                  >
-                    <motion.span {...framerText(index)} className='px-4'>
-                      {headerLink.title}
-                    </motion.span>
-                  </li>
+                <div
+                  key={headerLink.id}
+                  className='flex items-center gap-2'
+                >
+                  <Link href={`/${lang}${headerLink.src}`}>
+                    <li
+                      className='cursor-pointer xl:px-0 py-5 text-sm font-normal hover:bg-white hover:text-black'
+                    >
+                      <motion.span {...framerText(index)} className='px-4'>
+                        {headerLink.title}
+                      </motion.span>
+                    </li>
+                  </Link>
                   {headerLink.sublinks?.length && (
                     <div className='relative group cursor-pointer py-2 flex items-center' onClick={() => setIsMobile(false)}>
                       <BiChevronDown size={20} />
@@ -109,7 +130,7 @@ export default function Navbar(props: Props) {
                       ))}
                     </div>
                   )}
-                </Link>
+                  </div>
               ))
             }
           </ul>

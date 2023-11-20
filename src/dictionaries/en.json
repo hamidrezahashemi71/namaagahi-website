@@ -78,10 +78,10 @@
 
     "callActions" :{
       "callActionCards": [
-        {"id": 1, "iconName": "creativity", "color": "#4a4b69", "size": "100", "title": "Creativity" },
-        {"id": 2, "iconName": "digital", "color": "#9f4d68", "size": "100", "title": "Digital Marketing" },
-        {"id": 3, "iconName": "media", "color": "#faa75c", "size": "100", "title": "Media" },
-        {"id": 4, "iconName": "namava", "color": "#f9ca60", "size": "100", "title": "Namava" }
+        {"id": 1, "iconName": "creativity", "color": "#4a4b69", "size": "50", "title": "Creativity", "src": "/creativity" },
+        {"id": 2, "iconName": "digital", "color": "#9f4d68", "size": "50", "title": "Digital Marketing", "src": "/digital-marketing" },
+        {"id": 3, "iconName": "media", "color": "#faa75c", "size": "50", "title": "Media", "src": "/media" },
+        {"id": 4, "iconName": "namava", "color": "#f9ca60", "size": "50", "title": "Namava", "src": "/namava" }
       ]
     },
 

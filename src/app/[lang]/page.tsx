@@ -14,7 +14,7 @@ export default async function Home(props: LanguageProp) {
 
   return (
     <>
-      <Hero />
+      <Hero lang={lang}/>
       <CallToAction lang={lang}/>
     </>
   )

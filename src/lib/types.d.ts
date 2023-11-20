@@ -26,3 +26,14 @@ interface Header {
     })[];
   }
 }
+
+interface CallActionCardProps {
+  card: {
+    id: number;
+    iconName: string;
+    color: string;
+    size: string;
+    title: string;
+    src: string
+  }
+}

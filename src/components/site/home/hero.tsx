@@ -1,14 +1,18 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
 import { sliderImages } from '@/lib/images'
 import { CiCircleChevLeft, CiCircleChevRight  } from "react-icons/ci"
 import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md"
 import { FaRegCircle } from "react-icons/fa"
+import { motion, useAnimation } from 'framer-motion'
+import { Locale } from '@/config/i18n.config'
+import { FaPhone } from "react-icons/fa6"
 
-export default function Hero() {
+export default function Hero({ lang }: { lang: Locale }) {
   const [currentSlide, setCurrentSlide] = useState<number>(2)
+  const [scrolling, setScrolling] = useState(false)
+  const controls = useAnimation()
 
   const prevSlide = () => {
     const isFirstSlide = currentSlide === 0
@@ -25,11 +29,17 @@ export default function Hero() {
   const goToSlide = (slideIndex: number) => setCurrentSlide(slideIndex)
 
   const scrollToBottom = () => {
-    const firstDiv = document.getElementById('parentDiv')
-    if (firstDiv) {
-      const yOffset = firstDiv.getBoundingClientRect().bottom + window.scrollY
+    const parentDiv = document.getElementById('parentDiv')
+    if (parentDiv) {
+      const yOffset = parentDiv.getBoundingClientRect().bottom + window.scrollY - 60
       window.scrollTo({ top: yOffset, behavior: 'smooth' })
     }
+  }
+
+  const handleScroll = () => {
+    const scrollTop = window.scrollY
+    const threshold = 10
+    setScrolling(scrollTop > threshold)
   }
 
   useEffect(() => {
@@ -38,16 +48,25 @@ export default function Hero() {
     }, 7000)
   }, [currentSlide])
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    controls.start({ x: (scrolling && lang === 'fa') ? '-100%' : (scrolling && lang === 'en') ? '+100%' : '0%', y: scrolling ? '60px' : '0', transition: { duration: 0.2 } })
+  }, [scrolling, controls])
+
   return (
     <div
-      className='max-w-[300%] h-screen w-full m-auto relative'
+      className='max-w-[300%] h-screen w-full m-auto relative overflow-hidden'
       dir='rtl'
       id='parentDiv'
     >
       <div
         className='w-full h-full bg-center bg-cover duration-1000'
         style={{ backgroundImage: `url(${sliderImages[currentSlide].url})` }}
-      ></div>
+      />
       <div className='absolute top-0 right-0 w-full h-full bg-black/30 transition ease-in-out delay-1000' />
       <div className='absolute w-full bottom-36 -translate-x-0 translate-y-[-50%] left-7 flex justify-end items-center gap-x-1 py-2 border-b-purple-500 border-b-[3px]'>
         {sliderImages.map((slide, slideIndex) => (
@@ -60,6 +79,16 @@ export default function Hero() {
           </div>
         ))}
       </div>
+      <motion.div
+        className={`absolute top-10 ${lang === 'fa' ? 'left-0  rounded-r-3xl' : 'right-0  rounded-l-3xl'} text-xl w-[150px] bg-black/50 py-2 px-2 flex justify-center items-center gap-2`}
+        initial={{ x: 0 }}
+        animate={controls}
+      >
+        <p className='text-white font-bold text-2xl'>
+          02196610
+        </p>
+        <FaPhone className='text-white text-xl' />
+      </motion.div>
       <div className='hidden md:block absolute bottom-7 -translate-x-0 translate-y-[-50%] left-3 rounded-full p-2 text-white cursor-pointer'>
         <CiCircleChevLeft
           size={70}
