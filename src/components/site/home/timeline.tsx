@@ -7,9 +7,8 @@ export default async function Timeline({ lang }: { lang: Locale }) {
 
   return (
     <section className='py-24 '>
-      <div className="container flex flex-row-reverse w-full">
+      <div className="container flex flex-col-reverse items-center justify-center sm:flex-row-reverse w-full">
         {component.timeline.timelineElements.map((element) => (
-          <div className='relative'>
           <TimeLineElement
             key={element.id}
             title={element.title}
@@ -17,8 +16,6 @@ export default async function Timeline({ lang }: { lang: Locale }) {
             time={element.time}
             direction={element.direction}
           />
-          {/* <div className='absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-10 w-[2px] h-8 z-10 bg-black/50' /> */}
-          </div>
         ))}
       </div>
     </section>

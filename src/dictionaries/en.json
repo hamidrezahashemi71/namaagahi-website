@@ -93,12 +93,12 @@
 
       "timeline" :{
         "timelineElements": [
-          {"id": 1, "title": ["Establishment of Nemaaghi Agency"], "color": "#494B69", "time": "1388", "direction": "top"},
-          {"id": 2, "title": ["Nedia Ownership"], "color": "#695D7A", "time": "1391", "direction": "bottom"},
-          {"id": 3, "title": ["Conversion to full service agency"], "color": "#9F5B72", "time": "1394", "direction": "top"},
-          {"id": 4, "title": ["Joint venture with FCB Art Group agency" , "Establishment of Tehran FCB Art Group " ], "color": "#D8707C", "time": "1397", "direction": "bottom"},
-          {"id": 5, "title": ["Continuing strategic cooperation with FCB ART"], "color": "#FDA85A", "time": "1399", "direction": "top"},
-          {"id": 6, "title": ["The exclusive promoter of Namava advertising", "The owner of the exclusive advertising media for buses in Tehran", "Tehran Metro advertising executive"], "color": "#FDCD5A", "time": "1400", "direction": "bottom"}
+          {"id": 1, "title": ["Establishment of Nemaaghi Agency"], "color": "#494B69", "time": "2009", "direction": "top"},
+          {"id": 2, "title": ["Media Ownership"], "color": "#695D7A", "time": "2012", "direction": "bottom"},
+          {"id": 3, "title": ["Conversion to full service agency"], "color": "#9F5B72", "time": "2015", "direction": "top"},
+          {"id": 4, "title": ["Joint venture with FCB Art Group agency" , "Establishment of Tehran FCB Art Group " ], "color": "#D8707C", "time": "2018", "direction": "bottom"},
+          {"id": 5, "title": ["Continuing strategic cooperation with FCB ART"], "color": "#FDA85A", "time": "2020", "direction": "top"},
+          {"id": 6, "title": ["The exclusive promoter of Namava advertising", "The owner of the exclusive advertising media for buses in Tehran", "Tehran Metro advertising executive"], "color": "#FDCD5A", "time": "2021", "direction": "bottom"}
         ]
       },
 
