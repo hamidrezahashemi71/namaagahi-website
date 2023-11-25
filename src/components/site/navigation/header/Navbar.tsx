@@ -56,6 +56,26 @@ export default function Navbar(props: Props) {
     }
   }
 
+  const logoAnimation = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.5,
+        staggerChildren: 0.5
+      }
+    }
+  }
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  }
+
   return (
     <div className='top-0'>
       <div
@@ -65,31 +85,40 @@ export default function Navbar(props: Props) {
 
       >
         <div className="flex items-center gap-2">
-          <div className="hidden sm:flex items-center gap-2 w-44 py-4">
-            <Image
-              alt='header-logo'
-              src={logo}
-              width={52}
-              height={52}
-            />
-            {
-              lang === 'fa'
-              ?
+          <motion.div
+              className="hidden sm:flex items-center gap-2 w-44 py-4"
+              variants={logoAnimation}
+              initial="hidden"
+              animate="visible"
+          >
+            <motion.div variants={item}>
               <Image
-                alt='header-logo-black'
-                src={logoTextBlack}
-                width={120}
-                height={120}
+                alt='header-logo'
+                src={logo}
+                width={52}
+                height={52}
               />
-              :
-              <Image
-                alt='header-logo-black-en'
-                src={logoTextBlackEn}
-                width={120}
-                height={120}
-              />
-            }
-          </div>
+            </motion.div>
+            <motion.div variants={item}>
+              {
+                lang === 'fa'
+                ?
+                <Image
+                  alt='header-logo-black'
+                  src={logoTextBlack}
+                  width={120}
+                  height={120}
+                />
+                :
+                <Image
+                  alt='header-logo-black-en'
+                  src={logoTextBlackEn}
+                  width={120}
+                  height={120}
+                />
+              }
+            </motion.div>
+          </motion.div>
         </div>
       </div>
       <nav

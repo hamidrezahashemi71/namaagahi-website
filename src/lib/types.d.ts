@@ -37,3 +37,10 @@ interface CallActionCardProps {
     src: string
   }
 }
+
+interface TimeLineElementProps {
+  title: string[]
+  time: string
+  color: string
+  direction: string
+}

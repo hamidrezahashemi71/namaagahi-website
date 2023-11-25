@@ -16,6 +16,9 @@ const config: Config = {
         lg: '2rem'
       }
     },
+    clipPath: {
+      mypolygon: "polygon(0% 0%, 60% 0%, 100% 0%, 100% 50%, 100% 100%, 60% 100%, 0% 100%)",
+    },
     extend: {
       fontFamily: {
         sahel: ['var(--font-sahel)'],
@@ -48,6 +51,9 @@ const config: Config = {
             )
         }
     )
-})]
+  }),
+  require("tailwindcss-animate"),
+  require('tailwind-clip-path')
+]
 }
 export default config
