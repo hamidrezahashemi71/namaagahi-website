@@ -44,3 +44,14 @@ interface TimeLineElementProps {
   color: string
   direction: string
 }
+
+interface JoinUsFormData  {
+  firstName?:string
+  lastName?:string
+  idCode?: string
+  phone?: string
+  email?: string
+  introMethod?: string
+  description?: string
+  radioOption?: string
+}

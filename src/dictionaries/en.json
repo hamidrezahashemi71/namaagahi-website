@@ -26,7 +26,33 @@
         "info-email-title": "Public Relations: "
       },
       "jobs": {
-
+        "title": "Join Us",
+        "controls": [
+          {"id": 1, "control": "input", "type": "text", "label": "First Name", "name": "firstName", "col": 1},
+          {"id": 2, "control": "input", "type": "text", "label": "Last Name", "name": "lastName", "col": 1},
+          {"id": 3, "control": "input", "type": "number", "label": "Id Number", "name": "idCode", "col": 1},
+          {"id": 4, "control": "input", "type": "number", "label": "Phone Number", "name": "phone", "col": 1},
+          {"id": 5, "control": "input", "type": "email", "label": "Email", "name": "email", "col": 2},
+          {"id": 6, "control": "input", "type": "text", "label": "How you know us?", "name": "introMethod", "col": 2},
+          {"id": 7, "control": "textarea", "type": "textarea", "label": "Description", "name": "description", "col": 2},
+          {"id": 8, "control": "radio", "type": "radio", "label": "Field of expertise", "name": "field", "col": 2}
+        ],
+        "radioOptions": [
+          {"id": 1, "value": "Media"},
+          {"id": 2, "value": "Creativity"},
+          {"id": 3, "value": "Digital"},
+          {"id": 4, "value": "Marketing"},
+          {"id": 5, "value": "Financial"}
+        ],
+        "errorMessages": {
+          "name": "Enter Name",
+          "lastName": "Enter Last Name",
+          "idCode": "Enter ID code",
+          "phone": "Enter your phone",
+          "email": "Enter your email",
+          "field": "Chooe the field"
+        },
+        "submitText": "Send Request"
       }
     },
 

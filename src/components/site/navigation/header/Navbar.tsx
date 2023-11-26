@@ -12,6 +12,7 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { BiChevronDown } from 'react-icons/bi'
+import { usePathname } from 'next/navigation'
 
 type Props = {
   component: Header
@@ -22,7 +23,8 @@ export default function Navbar(props: Props) {
   const { component, lang } = props
   const [isMobile, setIsMobile] = useState<boolean>(false)
   const [scrolling, setScrolling] = useState(false)
-
+  const pathname = usePathname()
+console.log("pathname", pathname)
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY
@@ -138,7 +140,7 @@ export default function Navbar(props: Props) {
                 >
                   <Link href={`/${lang}${headerLink.src}`}>
                     <li
-                      className='cursor-pointer xl:px-0 py-5 text-sm font-normal hover:bg-white hover:text-black'
+                      className={`cursor-pointer xl:px-0 py-5 text-sm font-normal hover:bg-white hover:text-black ${`/${lang}${headerLink.src}` === pathname && 'bg-white text-black'}`}
                     >
                       <motion.span {...framerText(index)} className='px-4'>
                         {headerLink.title}

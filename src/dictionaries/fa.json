@@ -21,7 +21,33 @@
       "info-email-title": "روابط عمومی: "
     },
     "jobs": {
-
+      "title": "همکاری با ما",
+      "controls": [
+        {"id": 1, "control": "input", "type": "text", "label": "نام", "name": "firstName",  "col": 1},
+        {"id": 2, "control": "input", "type": "text", "label": "نام خانوادگی", "name": "lastName",  "col": 1},
+        {"id": 3, "control": "input", "type": "number", "label": "کد ملی", "name": "idCode",  "col": 1},
+        {"id": 4, "control": "input", "type": "number", "label": "شماره همراه", "name": "phone",  "col": 1},
+        {"id": 5, "control": "input", "type": "email", "label": "ایمیل", "name": "email",  "col": "2"},
+        {"id": 6, "control": "input", "type": "text", "label": "نحوه آشنایی", "name": "introMethod",  "col": 2},
+        {"id": 7, "control": "textarea", "type": "textarea", "label": "توضیحات (اختیاری)", "name": "description",  "col": 2},
+        {"id": 8, "control": "radio", "type": "radio", "label": "زمینه تخصص:", "name": "field", "col": 2}
+      ],
+      "radioOptions": [
+        {"id": 1, "value": "رسانه"},
+        {"id": 2, "value": "خلاقیت"},
+        {"id": 3, "value": "دیجیتال"},
+        {"id": 4, "value": "مارکتینگ"},
+        {"id": 5, "value": "مالی"}
+      ],
+      "errorMessages": {
+        "name": "نام را وارد کنید.",
+        "lastName": "نام خانوادگی را وارد کنید.",
+        "idCode": "کد ملی را وارد کنید.",
+        "phone": "شماره همراه را وارد کنید.",
+        "email": "ایمیل را وارد کنید.",
+        "field": "فیلد مورد نظر را انتخاب کنید"
+      },
+      "submitText": "ارسال درخواست"
     }
   },
 

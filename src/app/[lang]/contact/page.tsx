@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic'
 const Map = dynamic(() => import( '@/components/site/home/map'), {
   ssr: false
 })
+
 export async function generateMetadata({ params }: LanguageProp) {
   return metaJson[params.lang as 'fa' | 'en']['contact']
 }
