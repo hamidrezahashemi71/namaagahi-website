@@ -12,7 +12,13 @@
     },
     "contact": {
       "title": "ارتباط با ما",
-      "description": "این صفحه ارتباط با ما است"
+      "description": "این صفحه ارتباط با ما است",
+      "address": "آدرس: تهران، جردن، خیابان گل آذین، پلاک 31",
+      "phone": "021-96610",
+      "it-email": "it@namaagahi.com",
+      "it-email-title": "ایمیل بخش: ",
+      "info-email": "info@namaagahi.com",
+      "info-email-title": "روابط عمومی: "
     },
     "jobs": {
 

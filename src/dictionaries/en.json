@@ -16,7 +16,14 @@
         "subtitle": "Our Services"
       },
       "contact": {
-
+        "title": "Contact Us",
+        "description": "This is the contact page",
+        "address": "Address: 31 Gol Azin Boulevard, Jordan, Tehran, Iran.",
+        "phone": "+9802196610",
+        "it-email": "it@namaagahi.com",
+        "it-email-title": "Section Email: ",
+        "info-email": "info@namaagahi.com",
+        "info-email-title": "Public Relations: "
       },
       "jobs": {
 

@@ -21,7 +21,9 @@ export default async function Home(props: LanguageProp) {
       <CallToAction lang={lang}/>
       <Notice lang={lang}/>
       <Timeline lang={lang}/>
-      <Map lang={lang}/>
+      <div className="p-24 mt-10">
+        <Map lang={lang}/>
+      </div>
     </>
   )
 }

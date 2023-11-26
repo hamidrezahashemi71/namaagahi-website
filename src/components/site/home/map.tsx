@@ -23,7 +23,7 @@ const markers: [number, number][] = [center, [48.2, 16.37], [48.1987, 16.3685]]
 
 export default function Map({ lang }: { lang: Locale }) {
   return (
-    <div className="p-24 mt-20">
+
       <MapContainer center={[35.77850293084265, 51.42559769089241]} zoom={20} scrollWheelZoom={true} style={{height: 350, width: "100%"}}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -40,6 +40,5 @@ export default function Map({ lang }: { lang: Locale }) {
           </Popup>
         </Marker> */}
       </MapContainer>
-    </div>
   )
 }
