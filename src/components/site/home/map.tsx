@@ -23,22 +23,21 @@ const markers: [number, number][] = [center, [48.2, 16.37], [48.1987, 16.3685]]
 
 export default function Map({ lang }: { lang: Locale }) {
   return (
-
-      <MapContainer center={[35.77850293084265, 51.42559769089241]} zoom={20} scrollWheelZoom={true} style={{height: 350, width: "100%"}}>
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-          {markers.map((position, index) => (
+    <MapContainer center={[35.77850293084265, 51.42559769089241]} zoom={20} scrollWheelZoom={true} style={{height: 350, width: "100%"}}>
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+        {markers.map((position, index) => (
     <Marker key={index} position={position} />
   ))}
-        {/* <Marker
-          icon={customMarkerIcon}
-          position={[35.77850293084265, 51.42559769089241]}>
-          <Popup>
-           {lang === 'fa' ? ' آژانس تبلیغاتی نماآگهی محیط' : 'Nam Agahi advertising agency'}
-          </Popup>
-        </Marker> */}
-      </MapContainer>
+      {/* <Marker
+        icon={customMarkerIcon}
+        position={[35.77850293084265, 51.42559769089241]}>
+        <Popup>
+          {lang === 'fa' ? ' آژانس تبلیغاتی نماآگهی محیط' : 'Nam Agahi advertising agency'}
+        </Popup>
+      </Marker> */}
+    </MapContainer>
   )
 }

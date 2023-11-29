@@ -17,13 +17,18 @@ export default async function Home(props: LanguageProp) {
 
   return (
     <>
-      <Hero lang={lang}/>
-      <CallToAction lang={lang}/>
-      <Notice lang={lang}/>
-      <Timeline lang={lang}/>
-      <div className="p-24 mt-10">
-        <Map lang={lang}/>
+
+    <div className='absolute top-0 right-0 w-full h-screen'>
+      <Hero lang={lang} />
+      <div className="relative">
+        <CallToAction lang={lang}/>
+        <Notice lang={lang}/>
+        <Timeline lang={lang}/>
+        <div className="p-12 md:p-24 mt-10">
+          <Map lang={lang}/>
+        </div>
       </div>
+    </div>
     </>
   )
 }

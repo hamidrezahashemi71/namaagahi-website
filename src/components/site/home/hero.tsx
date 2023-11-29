@@ -75,56 +75,57 @@ export default function Hero({ lang }: { lang: Locale }) {
 
   return (
     <div
-      className='max-w-[300%] h-screen w-full m-auto relative overflow-hidden'
-      dir='rtl'
-      id='parentDiv'
+      className="relative w-full h-screen bg-center bg-cover duration-1000"
+      style={{ backgroundImage: `url(${sliderImages[currentSlide].url})`}}
     >
       <div
-        className='w-full h-full bg-center bg-cover duration-1000'
-        style={{ backgroundImage: `url(${sliderImages[currentSlide].url})` }}
-      />
-      <div className='absolute top-0 right-0 w-full h-full bg-black/30 transition ease-in-out delay-1000' />
-      <div className='absolute w-full bottom-36 -translate-x-0 translate-y-[-50%] left-7 flex justify-end items-center gap-x-1 py-2 border-b-purple-500 border-b-[3px]'>
-        {sliderImages.map((slide, slideIndex) => (
-          <div key={slide.id}>
-            <FaRegCircle
-              size={17}
-              className={`cursor-pointer text-white ${currentSlide === slideIndex && 'text-purple-500 font-bold'}`}
-              onClick={() => goToSlide(slideIndex)}
-            />
-          </div>
-        ))}
-      </div>
-      <motion.div
-        className={`absolute top-10 ${lang === 'fa' ? 'left-0  rounded-r-3xl' : 'right-0  rounded-l-3xl'} min-h-[50px] text-xl w-[170px] bg-black/50 py-2 px-2 flex justify-center items-center gap-2`}
-        initial={{ x: 0, opacity: 0 }}
-        animate={controls}
+        className='absolute top-0 right-0 max-w-[300%] h-full w-full m-auto  overflow-hidden'
+        dir='rtl'
+        id='parentDiv'
       >
-        <motion.span className='text-white font-bold text-2xl'>{displayText}</motion.span>
+        <div className='absolute top-0 right-0 w-full h-full bg-black/30 transition ease-in-out delay-1000' />
+        <div className='absolute w-full bottom-36 -translate-x-0 translate-y-[-50%] left-7 flex justify-end items-center gap-x-1 py-2 border-b-purple-500 border-b-[3px]'>
+          {sliderImages.map((slide, slideIndex) => (
+            <div key={slide.id}>
+              <FaRegCircle
+                size={17}
+                className={`cursor-pointer text-white ${currentSlide === slideIndex && 'text-purple-500 font-bold'}`}
+                onClick={() => goToSlide(slideIndex)}
+              />
+            </div>
+          ))}
+        </div>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={phoneIconControls}
+          className={`absolute top-28 ${lang === 'fa' ? 'left-0  rounded-r-3xl' : 'right-0  rounded-l-3xl'} min-h-[50px] text-xl w-[170px] bg-black/50 py-2 px-2 flex justify-center items-center gap-2`}
+          initial={{ x: 0, opacity: 0 }}
+          animate={controls}
         >
-          <FaPhone className='text-white text-xl' />
+          <motion.span className='text-white font-bold text-2xl'>{displayText}</motion.span>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={phoneIconControls}
+          >
+            <FaPhone className='text-white text-xl' />
+          </motion.div>
         </motion.div>
-      </motion.div>
-      <div className='hidden md:block absolute bottom-7 -translate-x-0 translate-y-[-50%] left-3 rounded-full p-2 text-white cursor-pointer'>
-        <CiCircleChevLeft
-          size={70}
-          onClick={prevSlide}
-        />
-      </div>
-      <div className='hidden md:block absolute bottom-7 -translate-x-0 translate-y-[-50%] left-20 rounded-full p-2 text-white cursor-pointer'>
-        <CiCircleChevRight
-          size={70}
-          onClick={nextSlide}
-        />
-      </div>
-      <div className='absolute bottom-16 -translate-x-0 translate-y-[-100%] left-[42%] md:right-3 rounded-full p-2 text-white cursor-pointer animate-bounce'>
-        <MdOutlineKeyboardDoubleArrowDown
-          size={70}
-          onClick={scrollToBottom}
-        />
+        <div className='hidden md:block absolute bottom-7 -translate-x-0 translate-y-[-50%] left-3 rounded-full p-2 text-white cursor-pointer'>
+          <CiCircleChevLeft
+            size={70}
+            onClick={prevSlide}
+          />
+        </div>
+        <div className='hidden md:block absolute bottom-7 -translate-x-0 translate-y-[-50%] left-20 rounded-full p-2 text-white cursor-pointer'>
+          <CiCircleChevRight
+            size={70}
+            onClick={nextSlide}
+          />
+        </div>
+        <div className='absolute bottom-16 -translate-x-0 translate-y-[-100%] left-[42%] md:right-3 rounded-full p-2 text-white cursor-pointer animate-bounce'>
+          <MdOutlineKeyboardDoubleArrowDown
+            size={70}
+            onClick={scrollToBottom}
+          />
+        </div>
       </div>
     </div>
   )

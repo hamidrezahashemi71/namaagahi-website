@@ -27,11 +27,11 @@ export default function RootLayout(props: RootLayoutProps) {
       suppressHydrationWarning={true}
       >
         <Providers>
-          <main className='z-10 bg-gradient-to-r from-fuchsia-500/10 via-violet-900/10 to-indigo-500/10'>
+          <main className='z-10 bg-gradient-to-r from-fuchsia-500/10 via-violet-900/10 to-indigo-500/10 h-[250%]'>
             <Header lang={params.lang} />
             {children}
-            <Footer lang={params.lang} />
           </main>
+            <Footer lang={params.lang} />
         </Providers>
       </body>
     </html>

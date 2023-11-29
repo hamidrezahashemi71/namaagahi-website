@@ -14,9 +14,9 @@ const footerContactLinks = [
 ]
 
 const footerSocialLinks = [
-  { id: 1, icon: <BsInstagram />, src: 'instagram' },
-  { id: 2, icon: <BsLinkedin />, src: 'linkedin' },
-  { id: 3, icon: <BsFacebook />, src: 'facebook' }
+  { id: 1, icon: <BsInstagram />, src: 'https://www.instagram.com/namaagahi/' },
+  { id: 2, icon: <BsLinkedin />, src: 'https://www.linkedin.com/company/namagahi' },
+  { id: 3, icon: <BsFacebook />, src: 'https://www.facebook.com/namaagahi.ir' }
 ]
 
 export default async function Footer({ lang }: { lang: Locale }) {
@@ -61,7 +61,7 @@ export default async function Footer({ lang }: { lang: Locale }) {
                   key={footerContactLink.id}
                   className='flex items-center gap-2 hover:text-[#9b51e0] text-sm md:text-lg transition-all'
                 >
-                  <Link href={`/${lang}`}>
+                  <Link href={`${footerContactLink.id === 1 ?`tel:${footerContactLink.title}` : `mailto:${footerContactLink.title}` }`}>
                     <p>
                       {footerContactLink.title}
                     </p>
@@ -82,15 +82,16 @@ export default async function Footer({ lang }: { lang: Locale }) {
           />
           <div className='flex gap-5 md:gap-8 items-center'>
             {
-              footerSocialLinks.map((footerSocialLinks) => (
-              <div
-                key={footerSocialLinks.id}
+              footerSocialLinks.map((footerSocialLink) => (
+              <Link
+                href={footerSocialLink.src}
+                key={footerSocialLink.id}
                 className='flex gap-4 items-center cursor-pointer hover:text-[#9b51e0] text-sm md:text-lg transition-all'
               >
                 <p className='text-lg md:text-3xl'>
-                  {footerSocialLinks.icon}
+                  {footerSocialLink.icon}
                 </p>
-              </div>
+              </Link>
               ))
             }
           </div>

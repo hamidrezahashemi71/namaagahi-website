@@ -81,7 +81,6 @@ console.log("pathname", pathname)
   return (
     <div className='top-0'>
       <div
-        id="your-absolute-div-id"
         className={`hidden sm:block absolute top-0 bg-white px-4 ${scrolling ? 'py-2' : 'py-5'} shadow-xl transition-all duration-500`}
         style={lang === 'en' ? { left: '-10px', borderBottomRightRadius: '30px' } : { right: '-10px', borderBottomLeftRadius: '30px' }}
 
@@ -124,14 +123,14 @@ console.log("pathname", pathname)
         </div>
       </div>
       <nav
-        className="relative max-w-ful flex flex-wrap flex-row-reverse items-center justify-between xl:mx-auto"
+        className="relative max-w-full w-full flex flex-wrap flex-row-reverse items-center justify-between xl:mx-auto"
         style={{ width: `calc(100% - 450px)` }}
       >
         <motion.div
           {...framerSidebarPanel}
           className={`${!isMobile ? 'hidden' : 'fixed left-0 top-14 md:top-[70px]'} xl:relative xl:top-0 items-center justify-between w-full xl:flex  xl:order-1`}
         >
-          <ul className="flex flex-col items-start justify-center py-4 gap-4 font-medium xl:p-0 mt-4 bg-gray-100 dark:bg-gray-800 xl:dark:bg-transparent bg-opacity-70 dark:bg-opacity-70 xl:flex-row xl:mt-0 xl:bg-transparent ">
+          <ul className="flex flex-col items-center justify-center py-4 gap-2 font-medium xl:p-0 mt-4 bg-gray-100 dark:bg-gray-800 xl:dark:bg-transparent bg-opacity-70 dark:bg-opacity-70 xl:flex-row xl:mt-0 xl:bg-transparent ">
             {
               component?.header.headerNavLinks.map((headerLink, index, ref) => (
                 <div
@@ -140,7 +139,7 @@ console.log("pathname", pathname)
                 >
                   <Link href={`/${lang}${headerLink.src}`}>
                     <li
-                      className={`cursor-pointer xl:px-0 py-5 text-sm font-normal hover:bg-white hover:text-black ${`/${lang}${headerLink.src}` === pathname && 'bg-white text-black'}`}
+                      className={`cursor-pointer xl:px-0 py-5 text-sm font-normal hover:bg-white hover:text-black ${`/${lang}${headerLink.src}` === pathname && 'bg-white text-black'} min-w-[120px]`}
                     >
                       <motion.span {...framerText(index)} className='px-4'>
                         {headerLink.title}
