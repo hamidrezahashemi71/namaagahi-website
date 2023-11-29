@@ -8,11 +8,13 @@ import logo from '../../../../../public/images/logo.svg'
 import LocaleSwitcher from '@/components/LocaleSwitcher'
 import { Locale } from '@/config/i18n.config'
 import ThemeToggler from '@/components/ThemeToggler'
-import { AiOutlineMenu } from 'react-icons/ai'
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { BiChevronDown } from 'react-icons/bi'
 import { usePathname } from 'next/navigation'
+import { FaChevronUp } from 'react-icons/fa'
+import { FaChevronDown } from 'react-icons/fa6'
 
 type Props = {
   component: Header
@@ -22,9 +24,10 @@ type Props = {
 export default function Navbar(props: Props) {
   const { component, lang } = props
   const [isMobile, setIsMobile] = useState<boolean>(false)
+  const [heading, setHeading] = useState("");
   const [scrolling, setScrolling] = useState(false)
   const pathname = usePathname()
-console.log("pathname", pathname)
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY
@@ -79,9 +82,9 @@ console.log("pathname", pathname)
   }
 
   return (
-    <div className='top-0'>
+    <div className='fixed left-0 top-0 w-full z-10 ease-in duration-300'>
       <div
-        className={`hidden sm:block absolute top-0 bg-white px-4 ${scrolling ? 'py-2' : 'py-5'} shadow-xl transition-all duration-500`}
+        className={`hidden sm:block absolute top-0 bg-white px-4 ${scrolling ? 'py-2' : 'py-5'} shadow-xl transition-all duration-500 z-[999]`}
         style={lang === 'en' ? { left: '-10px', borderBottomRightRadius: '30px' } : { right: '-10px', borderBottomLeftRadius: '30px' }}
 
       >
@@ -122,68 +125,106 @@ console.log("pathname", pathname)
           </motion.div>
         </div>
       </div>
-      <nav
-        className="relative max-w-full w-full flex flex-wrap flex-row-reverse items-center justify-between xl:mx-auto"
-        style={{ width: `calc(100% - 450px)` }}
-      >
+
+      <nav  className={`px-2 ${lang === 'en' ? 'sm:pl-[200px]' : 'sm:pr-[200px]'} relative z-[99] w-full m-auto flex justify-between items-center p-2 text-white sm:text-black bg-gray-100 bg-opacity-70`}>
+        <motion.ul {...framerSidebarPanel} className='hidden sm:flex '>
+          {
+            component?.header.headerNavLinks.map((headerLink, index, ref) => (
+              !headerLink.sublinks
+              ?
+              <li className={`py-4 px-2 xl:px-4 text-sm xl:text-base font-bold hover:bg-white transition-colors duration-500 ${`/${lang}${headerLink.src}` === pathname && 'bg-white'}`} key={headerLink.id}>
+                <Link href={`/${lang}${headerLink.src}`}>
+                  <motion.span {...framerText(index)}>
+                    {headerLink.title}
+                  </motion.span>
+                </Link>
+              </li>
+              :
+              <li className='py-4 px-2 xl:px-4 text-sm xl:text-base font-bold'
+              onClick={() => {
+                heading !== headerLink.title ? setHeading(headerLink.title) : setHeading("");
+              }}
+              >
+                <motion.span {...framerText(index)} className='flex items-center gap-1'>
+                  {headerLink.title}
+                  <span className="text-sm cursor-pointer">
+                    { heading === headerLink.title ? <FaChevronUp size={10} /> : <FaChevronDown size={10} />}
+                  </span>
+                  <ul className='absolute top-16 text-sm bg-gray-100 bg-opacity-70 rounded-md '>
+                  {headerLink.sublinks.map((sublink) => (
+                    heading !== headerLink.title &&
+                  <li className='px-2 xl:px-4 font-bold p-2 hover:bg-white transition-colors duration-500' key={sublink.id}>
+                    <Link href={`/${lang}${sublink.src}`}>
+                      {sublink.title}
+                    </Link>
+                  </li>
+                  ))}
+                  </ul>
+                </motion.span>
+            </li>
+            ))
+          }
+          <div className='flex justify-center gap-2'>
+            <LocaleSwitcher size={20} />
+            <ThemeToggler size={20}/>
+          </div>
+        </motion.ul>
+
+        <button
+          onClick={handleIsMobile}
+          className='block sm:hidden z-10 '
+          data-collapse-toggle="navbar-language"
+          type="button"
+          aria-controls="navbar-language"
+          aria-expanded="false"
+        >
+          {isMobile ? <AiOutlineClose size={25} className='text-white' /> : <AiOutlineMenu size={25} className='text-black'/>}
+        </button>
+
         <motion.div
           {...framerSidebarPanel}
-          className={`${!isMobile ? 'hidden' : 'fixed left-0 top-14 md:top-[70px]'} xl:relative xl:top-0 items-center justify-between w-full xl:flex  xl:order-1`}
-        >
-          <ul className="flex flex-col items-center justify-center py-4 gap-2 font-medium xl:p-0 mt-4 bg-gray-100 dark:bg-gray-800 xl:dark:bg-transparent bg-opacity-70 dark:bg-opacity-70 xl:flex-row xl:mt-0 xl:bg-transparent ">
+            className={
+              isMobile
+                ? 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
+                : `sm:hidden absolute top-0 ${lang == 'en' ? 'left-[-100%] right-0 ' : 'left-0 right-[-100%]'} bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300`
+        }>
+          <ul>
             {
               component?.header.headerNavLinks.map((headerLink, index, ref) => (
-                <div
-                  key={headerLink.id}
-                  className='flex items-center gap-2'
-                >
+                headerLink.sublinks
+                ?
+                <li className='p-4 text-4xl hover:text-gray-500' onClick={handleIsMobile}>
+                <motion.span {...framerText(index)} className='flex flex-col items-center gap-1'>
+                  {headerLink.title}
+
+                  <ul className='py-4 text-xl hover:text-gray-500 '>
+                  {headerLink.sublinks.map((sublink) => (
+                    heading !== headerLink.title &&
+                  <li className='px-2 xl:px-4 font-bold p-2' key={sublink.id}>
+                    <Link href={`/${lang}${sublink.src}`}>
+                      {sublink.title}
+                    </Link>
+                  </li>
+                  ))}
+                  </ul>
+                </motion.span>
+                </li>
+                :
+                <li className='p-4 text-4xl hover:text-gray-500' onClick={handleIsMobile}>
                   <Link href={`/${lang}${headerLink.src}`}>
-                    <li
-                      className={`cursor-pointer xl:px-0 py-5 text-sm font-normal hover:bg-white hover:text-black ${`/${lang}${headerLink.src}` === pathname && 'bg-white text-black'} min-w-[120px]`}
-                    >
-                      <motion.span {...framerText(index)} className='px-4'>
+                      <motion.span {...framerText(index)}>
                         {headerLink.title}
                       </motion.span>
-                    </li>
                   </Link>
-                  {headerLink.sublinks?.length && (
-                    <div className='relative group cursor-pointer py-2 flex items-center' onClick={() => setIsMobile(false)}>
-                      <BiChevronDown size={20} />
-                      {headerLink.sublinks?.map((sublink) => (
-                        <Link
-                          href={`/${lang}${sublink.src}`}
-                          key={sublink.id}
-                          className='invisible z-50 font-normal flex py-1 px-4 group-hover:visible hover:bg-white hover:text-black rounded-md'
-                        >
-                          {sublink.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                  </div>
+                </li>
               ))
             }
+            <div className='flex justify-center gap-2 mt-4'>
+              <LocaleSwitcher size={40} />
+              <ThemeToggler size={40}/>
+            </div>
           </ul>
-        <div className="flex items-center gap-2 ">
-          <LocaleSwitcher />
-
-          <ThemeToggler />
-        </div>
         </motion.div>
-
-        <div className='xl:hidden relative top-0 w-full'>
-          <button
-            className='absolute'
-            style={lang === 'en' ? { left:0 } : { right:0 }}
-            data-collapse-toggle="navbar-language"
-            type="button"
-            aria-controls="navbar-language"
-            aria-expanded="false"
-            onClick={handleIsMobile}
-          >
-            <AiOutlineMenu size={25} />
-          </button>
-        </div>
       </nav>
     </div>
   )

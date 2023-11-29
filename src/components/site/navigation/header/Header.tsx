@@ -6,7 +6,7 @@ export default async function Header({ lang }: { lang: Locale }) {
   const { component } = await getDictionary(lang)
 
   return (
-    <header className='sticky top-0 bg-black bg-opacity-50 px-2 text-white z-[999] w-full'>
+    <header className='sticky top-0 px-2 z-[999] w-full'>
       <Navbar
         component={component}
         lang={lang}

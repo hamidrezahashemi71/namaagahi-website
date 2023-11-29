@@ -55,3 +55,7 @@ interface JoinUsFormData  {
   description?: string
   radioOption?: string
 }
+
+interface MenuIconSize {
+  size: number
+}

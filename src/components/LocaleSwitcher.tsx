@@ -7,7 +7,8 @@ import Image from 'next/image'
 import fa from '../../public/images/fa.png'
 import en from '../../public/images/en.png'
 
-export default function LocaleSwitcher() {
+export default function LocaleSwitcher(props: MenuIconSize) {
+  const { size } = props
   const pathName = usePathname()
 
   const redirectedPathName = (locale: string) => {
@@ -30,15 +31,15 @@ export default function LocaleSwitcher() {
                 {locale === 'fa' ?
                   <Image
                     src={fa}
-                    width={20}
-                    height={20}
+                    width={size}
+                    height={size}
                     alt='fa'
                   />
                 :
                   <Image
                     src={en}
-                    width={20}
-                    height={20}
+                    width={size}
+                    height={size}
                     alt='en'
                   />
                 }

@@ -5,7 +5,8 @@ import { useTheme } from 'next-themes'
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 import { GiMoon } from 'react-icons/gi'
 
-export default function ThemeToggler() {
+export default function ThemeToggler(props: MenuIconSize) {
+  const { size } = props
   const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -20,9 +21,9 @@ export default function ThemeToggler() {
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
       {resolvedTheme === 'dark' ? (
-        <BsFillSunFill className='text-orange-300' size={20} />
+        <BsFillSunFill className='text-orange-300' size={size} />
       ) : (
-        <GiMoon className='text-blue-900' size={20} />
+        <GiMoon className='text-blue-900' size={size} />
       )}
     </button>
   )
