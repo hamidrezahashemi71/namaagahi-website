@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
+import { BsFillSunFill } from 'react-icons/bs'
 import { GiMoon } from 'react-icons/gi'
 
 export default function ThemeToggler(props: MenuIconSize) {

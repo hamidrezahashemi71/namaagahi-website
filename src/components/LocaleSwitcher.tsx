@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { i18n } from '@/config/i18n.config'
 import Image from 'next/image'
-import fa from '../../public/images/fa.png'
-import en from '../../public/images/en.png'
+import fa from '../../public/images/icons/fa.png'
+import en from '../../public/images/icons/en.png'
 
 export default function LocaleSwitcher(props: MenuIconSize) {
   const { size } = props

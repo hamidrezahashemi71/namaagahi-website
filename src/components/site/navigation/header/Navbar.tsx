@@ -2,16 +2,15 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import logoTextBlack from '../../../../../public/images/logo-text-black.png'
-import logoTextBlackEn from '../../../../../public/images/logo-text-black-en.png'
-import logo from '../../../../../public/images/logo.svg'
+import logoTextBlack from '../../../../../public/images/logo/logo-text-black.png'
+import logoTextBlackEn from '../../../../../public/images/logo/logo-text-black-en.png'
+import logo from '../../../../../public/images/logo/logo.svg'
 import LocaleSwitcher from '@/components/LocaleSwitcher'
 import { Locale } from '@/config/i18n.config'
 import ThemeToggler from '@/components/ThemeToggler'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { BiChevronDown } from 'react-icons/bi'
 import { usePathname } from 'next/navigation'
 import { FaChevronUp } from 'react-icons/fa'
 import { FaChevronDown } from 'react-icons/fa6'
@@ -126,7 +125,7 @@ export default function Navbar(props: Props) {
         </div>
       </div>
 
-      <nav  className={`px-2 ${lang === 'en' ? 'sm:pl-[200px]' : 'sm:pr-[200px]'} relative z-[99] w-full m-auto flex justify-between items-center p-2 text-white sm:text-black bg-gray-100 bg-opacity-70`}>
+      <nav  className={`px-2 ${lang === 'en' ? 'sm:pl-[200px]' : 'sm:pr-[200px]'} relative z-[99] w-full m-auto flex justify-between items-center p-2 text-white sm:text-black bg-gray-100 bg-opacity-50`}>
         <motion.ul {...framerSidebarPanel} className='hidden sm:flex '>
           {
             component?.header.headerNavLinks.map((headerLink, index, ref) => (
@@ -140,10 +139,11 @@ export default function Navbar(props: Props) {
                 </Link>
               </li>
               :
-              <li className='py-4 px-2 xl:px-4 text-sm xl:text-base font-bold'
-              onClick={() => {
-                heading !== headerLink.title ? setHeading(headerLink.title) : setHeading("");
-              }}
+              <li
+                className='py-4 px-2 xl:px-4 text-sm xl:text-base font-bold'
+                onClick={() => {
+                  heading !== headerLink.title ? setHeading(headerLink.title) : setHeading("");
+                }}
               >
                 <motion.span {...framerText(index)} className='flex items-center gap-1'>
                   {headerLink.title}
@@ -190,14 +190,14 @@ export default function Navbar(props: Props) {
         }>
           <ul>
             {
-              component?.header.headerNavLinks.map((headerLink, index, ref) => (
+              component?.header.headerNavLinks.map((headerLink, index) => (
                 headerLink.sublinks
                 ?
-                <li className='p-4 text-4xl hover:text-gray-500' onClick={handleIsMobile}>
+                <li className='p-4 text-4xl hover:text-gray-500' onClick={handleIsMobile} key={headerLink.id}>
                 <motion.span {...framerText(index)} className='flex flex-col items-center gap-1'>
                   {headerLink.title}
 
-                  <ul className='py-4 text-xl hover:text-gray-500 '>
+                  <ul className=' py-4 text-xl hover:text-gray-500 '>
                   {headerLink.sublinks.map((sublink) => (
                     heading !== headerLink.title &&
                   <li className='px-2 xl:px-4 font-bold p-2' key={sublink.id}>

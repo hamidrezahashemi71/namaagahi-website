@@ -1,5 +1,5 @@
 import React from 'react'
-import CallActionCard from './callActionCard'
+import CallActionCard from '../generals/callActionCard'
 import { Locale } from '@/config/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
 import Link from 'next/link'
