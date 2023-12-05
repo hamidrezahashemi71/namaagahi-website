@@ -3,7 +3,7 @@ import metaJson from '@/dictionaries/meta.json'
 import Container from '@/components/site/generals/container'
 import { FaPhoneSquareAlt } from "react-icons/fa"
 import dynamic from 'next/dynamic'
-const Map = dynamic(() => import( '@/components/site/home/map'), {
+const Map = dynamic(() => import( '@/components/site/generals/map'), {
   ssr: false
 })
 

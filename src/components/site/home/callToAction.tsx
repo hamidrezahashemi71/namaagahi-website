@@ -1,15 +1,12 @@
-import React from 'react'
 import CallActionCard from '../generals/callActionCard'
 import { Locale } from '@/config/i18n.config'
-import { getDictionary } from '@/lib/dictionary'
 import Link from 'next/link'
 
-export default async function CallToAction({ lang }: { lang: Locale }) {
-  const { component } = await getDictionary(lang)
+export default async function CallToAction({ lang, callActionsCards }: { lang: Locale, callActionsCards: CallActionCard[] }) {
 
   return (
     <div className='w-full px-32 py-10 flex items-center justify-around gap-x-2 border-b'>
-      {component.callActions.callActionCards.map((card) => (
+      {callActionsCards.map((card) => (
         <Link href={`/${lang}${card.src}`} key={card.id}>
           <CallActionCard card={card} />
         </Link>

@@ -38,6 +38,15 @@ interface CallActionCardProps {
   }
 }
 
+interface CallActionCard {
+  id: number;
+  iconName: string;
+  color: string;
+  size: string;
+  title: string;
+  src: string
+}
+
 interface TimeLineElementProps {
   title: string[]
   time: string

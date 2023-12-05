@@ -3,7 +3,7 @@ import { Locale, i18n } from '@/config/i18n.config'
 import Header from '@/components/site/navigation/header/header'
 import Providers from '@/lib/Providers'
 import { roboto, sahel } from '@/lib/fonts'
-import Footer from '@/components/site/navigation/Footer'
+import Footer from '@/components/site/navigation/footer'
 
 type RootLayoutProps = {
   children: React.ReactNode
