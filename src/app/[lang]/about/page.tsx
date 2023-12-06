@@ -1,7 +1,7 @@
 import { getDictionary } from '@/lib/dictionary'
 import metaJson from '@/dictionaries/meta.json'
 import Container from '@/components/site/generals/container'
-import CallToAction from '@/components/site/home/callToAction'
+import CallToAction from '@/components/site/generals/callToAction'
 
 export async function generateMetadata({ params }: LanguageProp) {
   return metaJson[params.lang as 'fa' | 'en']['about']

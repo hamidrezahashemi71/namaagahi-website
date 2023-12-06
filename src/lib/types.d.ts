@@ -68,3 +68,9 @@ interface JoinUsFormData  {
 interface MenuIconSize {
   size: number
 }
+
+interface SliderImagesProp {
+  id?: number
+  title?: string
+  url?: string
+}

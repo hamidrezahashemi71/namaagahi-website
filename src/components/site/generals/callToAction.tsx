@@ -1,4 +1,4 @@
-import CallActionCard from '../generals/callActionCard'
+import CallActionCard from './callActionCard'
 import { Locale } from '@/config/i18n.config'
 import Link from 'next/link'
 

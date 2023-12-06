@@ -1,6 +1,6 @@
 import metaJson from '@/dictionaries/meta.json'
 import Hero from '@/components/site/home/hero'
-import CallToAction from '@/components/site/home/callToAction'
+import CallToAction from '@/components/site/generals/callToAction'
 import Notice from '@/components/site/home/notice'
 import Timeline from '@/components/site/home/timeline'
 import dynamic from 'next/dynamic'
